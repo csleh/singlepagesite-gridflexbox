@@ -97,7 +97,7 @@ nav ul {
 	background: white;
 	border:1px solid #ccc;
 	margin:1em;
-	padding: 1.5em;
+	padding: 1.5em 1.5em 1em;
 }
 
 .bucket-img {
@@ -187,9 +187,8 @@ nav li a {
      linear-gradient(to bottom, rgba(201,103,96,0.65) 0%, rgba(149,127,142,0.65) 40%, rgba(74,160,209,1) 97%, rgba(70,162,212,1) 100%),
     /* bottom, image */
     url('https://source.unsplash.com/vMRMYoLQzwo') no-repeat;
-    background-size:cover;
-    background-attachment:fixed;
-    height:50vh;
+
+    height:20vh;
 }
 .splash .half-screen {
 	color:#fff;
@@ -200,7 +199,13 @@ nav li a {
  	text-align:center;
  	padding:2rem;
  }
-
+@media screen and (min-width: 800px) {
+  .splash {
+      height:50vh;
+      background-size:cover;
+      background-attachment:fixed;
+  }
+}
 
 
 
@@ -233,8 +238,10 @@ Use flex to create buckets in each row
 		}
 		 .buckets-wrap .bucket{
 		   flex: 1 1 10em;
+		   background-color:#efefef;
 		 }
 		.bucket {
+		flex: 1;
 		}
 	}
 }
@@ -318,13 +325,14 @@ CSS Grid layout for wider screens, when browser supports grid:
       	    <img src="https://source.unsplash.com/1jKjJjGgDG8/600x400" alt="">
       	  </div>
       		 <h3 class="bucket-title">Buckets use flexbox</h3>
-          <p>That way the buckets are even vertically and share the space horizontally, proportionate to their contents.</p>
+          <p>They will stay in the same row when using the class <code>.bucket</code></p>
       	</article>
       	<article class="bucket">
       	   <div class="bucket-img">
       	    <img src="https://source.unsplash.com/KUfkX6gVwBU/600x400" alt="">
       	  </div>
-          <p>Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things.</p>
+      	   <h3 class="bucket-title">Buckets use flexbox</h3>
+          <p>Some content about fabulous things.</p>
       	</article>
 
       </div>
@@ -338,8 +346,7 @@ CSS Grid layout for wider screens, when browser supports grid:
       	  <p>The section has the class <code>.color</code> to apply the background color</p>
       	</article>
       	<article class="bucket">
-      	  <p>The content in this bucket is larger than the content in the bucket next to it, so this bucket takes up twice as much horizontal space.</p>
-      	  <p>Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things.</p>
+      	  <p>Buckets match height.</p>
       	</article>
 
       </div>
@@ -370,8 +377,6 @@ CSS Grid layout for wider screens, when browser supports grid:
       	<article class="bucket">bucket item</article>
       	<article class="bucket">bucket item</article>
       	<article class="bucket"><p>This example is <code>flex:1 1 10em</code></p></article>
-      	<article class="bucket">bucket item</article>
-      	<article class="bucket">bucket item</article>
       </div>
     </div><!-- end mid-columns -->
   </section>
