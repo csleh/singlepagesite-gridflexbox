@@ -1,0 +1,387 @@
+<html>
+<head>
+ <style>
+/*--------------------------------------------------------------
+Basic CSS Reset
+--------------------------------------------------------------*/
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust:     100%;
+}
+
+body {
+	margin: 0;
+}
+
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: 'Helvetica', Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 3.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 2.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 2.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 1.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: .8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: .5rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+/*@media (min-width: 550px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}*/
+
+p {
+  margin-top: 0; }
+
+/* BASIC LAYOUT STRUCTURE */
+
+
+
+/* NAVIGATION */
+/* main nav*/
+nav {
+	display:flex;
+	justify-content:center;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+}
+
+/* MAIN CONTENT SECTION */
+
+/* some sections should have a background color that extends to the edges */
+.color {
+	background: #2185C5;
+}
+
+
+/* Content Buckets  */
+
+.buckets {
+	padding: 2em;
+}
+
+.bucket {
+	background: white;
+	border:1px solid #ccc;
+	margin:1em;
+	padding: 1.5em;
+}
+
+.bucket-img {
+  	margin:-1.5em -1.5em 1em -1.5em
+}
+/* FOOTER SECTION */
+/* footer color blocks */
+
+.site-footer .half-screen {
+	padding: 2em;
+	background: #2185C5;
+	color: white;
+}
+
+.site-footer .half-screen:last-of-type {
+	background: #FF7F66;
+}
+
+
+
+/* CUSTOMIZING SPECIFICS */
+
+/* Masthead section */
+.masthead {
+
+}
+.logo,
+.site-title {
+	text-align: center;
+}
+
+.logo {
+	font-size: 6em;
+}
+
+.site-title {
+	margin-top:-.8em;
+}
+
+/* main nav*/
+
+nav li {
+  color: #666;
+  display: block;
+  text-align: center;
+}
+nav li:hover {
+  background-color:#efefef;
+}
+nav li a {
+  color: #666;
+  display: block;
+  padding: .5rem;
+  text-decoration: none;
+}
+@media screen and (min-width: 600px) {
+nav li {
+  background-image: linear-gradient(to bottom, transparent 50%, #f7f7f7 50%, #efefef 95%);
+  background-size: 100% 200%;
+  background-position: top center;
+  color: #666;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  transition: all .25s ease-in-out;
+}
+nav li:hover {
+  background-position: bottom center;
+  color: rgba(0, 0, 0, 0.75);
+}
+nav li a {
+  color: #666;
+  display: block;
+  transition: all .25s ease-in-out;
+  text-align: center;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  }
+}
+
+
+/* Splash section */
+
+.splash {
+	background: 
+    /* transparent overlay */ 
+     linear-gradient(to bottom, rgba(201,103,96,0.65) 0%, rgba(149,127,142,0.65) 40%, rgba(74,160,209,1) 97%, rgba(70,162,212,1) 100%),
+    /* bottom, image */
+    url('https://source.unsplash.com/vMRMYoLQzwo') no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    height:50vh;
+}
+.splash .half-screen {
+	color:#fff;
+	padding:2em 4em;
+}
+ .splash h2 {
+ 	color:#000;
+ 	text-align:center;
+ 	padding:2rem;
+ }
+
+
+
+
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align
+Rows are stacked and content is stacked within, like a small screen layout
+--------------------------------------------------------------*/
+@supports not (display: grid) {
+	.grid {
+		max-width: 50em;
+		margin: 0 auto;
+	}
+}
+
+/*--------------------------------------------------------------
+Use flex to create buckets in each row 
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 700px) {
+	@supports (display: flex) {
+
+		.buckets {
+			display: flex;
+			justify-content: space-around;
+		}
+		.buckets-wrap {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap:wrap;
+		}
+		 .buckets-wrap .bucket{
+		   flex: 1 1 10em;
+		 }
+		.bucket {
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for wider screens, when browser supports grid:
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 600px) {
+	/* Layout with CSS Grid */
+	@supports (display: grid) {
+
+		/* Four-column layout. Two center columns have a total max width of 50em: */
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+		}
+
+		/* Center items by placing them in the two center columns: */
+		.mid-columns {
+			grid-column: 2/4;
+		}
+
+		/* Use automatic grid placement + span to let each item span two columns:*/
+		.half-screen {
+			grid-column: span 2;
+		}
+		.splash .half-screen {
+		  align-self:end;
+		}
+
+	}
+}
+
+/* CUSTOM SECTION STYLES FOR ADVANCED BROWSERS OR LARGER SCREEN SIZES */
+
+ </style>
+</head>
+
+<body>
+
+<header class="masthead">
+  <div class="logo">G</div>
+  <h1 class="site-title">is for Grid</h1>
+  
+  <nav class="main-nav">
+    <ul class="mid-columns">
+     <li><a href="#">Home</a></li>
+     <li><a href="#">About</a></li>
+     <li><a href="#">Clients</a></li>
+     <li><a href="#">Contact Us</a></li>
+  </ul>
+  </nav>
+</header><!-- end masthead -->
+
+  
+<main id="content" class="main-area">
+
+ <section class="splash grid">
+      <h2 class="mid-columns content-title">Full Bleed CSS Grid</h2>
+   	 <div class="half-screen">
+    	<h3>A common layout created in css grid</h3>
+   	 </div><!-- end splash-text -->
+    <div class="half-screen">
+    	<p>Css grid is an easier way to build responsive pages but some clients aren't ready for a redesign of their site. Until they are, the site can use css grid with the same layout they currently have.</p>
+    </div><!-- end splash-text -->
+  </section><!-- end splash -->
+  
+  <section class="grid">
+    <div class="mid-columns">
+      <div class="buckets">
+        <article class="bucket">
+      	   <div class="bucket-img">
+				<img src="https://source.unsplash.com/w3lQVmuK8fw/600x400" alt="">
+      	  </div>
+      		 <h3 class="bucket-title">Bucket with image</h3>
+          <p>Image is inside a div with class <code>.bucket-img</code> that has negative margins to counter bucket padding. </p>
+      	</article>
+        <article class="bucket">
+      	   <div class="bucket-img">
+      	    <img src="https://source.unsplash.com/1jKjJjGgDG8/600x400" alt="">
+      	  </div>
+      		 <h3 class="bucket-title">Buckets use flexbox</h3>
+          <p>That way the buckets are even vertically and share the space horizontally, proportionate to their contents.</p>
+      	</article>
+      	<article class="bucket">
+      	   <div class="bucket-img">
+      	    <img src="https://source.unsplash.com/KUfkX6gVwBU/600x400" alt="">
+      	  </div>
+          <p>Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things.</p>
+      	</article>
+
+      </div>
+    </div><!-- end mid-columns -->
+  </section><!-- end row -->
+
+ <section class="color grid">
+    <div class="mid-columns">
+      <div class="buckets">
+      	<article class="bucket">
+      	  <p>The section has the class <code>.color</code> to apply the background color</p>
+      	</article>
+      	<article class="bucket">
+      	  <p>The content in this bucket is larger than the content in the bucket next to it, so this bucket takes up twice as much horizontal space.</p>
+      	  <p>Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things. Some content about fabulous things.</p>
+      	</article>
+
+      </div>
+    </div><!-- end more-content -->
+  </section><!-- end row -->
+  
+   <section class="grid">
+    <div class="mid-columns">
+      <div class="buckets-wrap">
+      	<article class="bucket">Use class <code>.bucket-wrap</code> so buckets won't be forced all on one line.</article>
+      	<article class="bucket">
+      	 <div class="bucket-img">
+			<img src="https://source.unsplash.com/1jKjJjGgDG8/600x400" alt="">
+      	  </div>
+      		 <h3 class="bucket-title">Bucket with image</h3>
+         
+      	</article>
+      	<article class="bucket"> 
+      	  <p>Buckets that wrap have a flex basis applied so the widths can be standardized even with different content. The number of buckets in a row is still dependent on screen width.</p>
+      	  </article>
+      	<article class="bucket">
+      	  <h4>An image can go below, too</h4>
+      	  <div class="bucket-img">
+			<img src="https://source.unsplash.com/w3lQVmuK8fw/600x400" alt="">
+      	  </div>
+      	</article>
+      	<article class="bucket">bucket item</article>
+      	<article class="bucket">bucket item</article>
+      	<article class="bucket">bucket item</article>
+      	<article class="bucket"><p>This example is <code>flex:1 1 10em</code></p></article>
+      	<article class="bucket">bucket item</article>
+      	<article class="bucket">bucket item</article>
+      </div>
+    </div><!-- end mid-columns -->
+  </section>
+ 
+</main>
+
+<footer class="site-footer grid">
+  <aside class="half-screen">Adapted by <a href="https://twitter.com/csleh" target="_blank" rel="nofollow">Colleen Sullivan Leh</a> from layout/css codepen by: <a href="https://codepen.io/mor10/pen/xdYoNO" target="_blank" rel="nofollow">Morten Rand-Hendriksen</a>.</aside>
+  <aside class="half-screen">All photos: <a href="https://unsplash.com/@andozo" target="_blank" rel="nofollow">Andreas Rønningen</a>.</aside>
+</footer>    
+
+</body>
+</html>
